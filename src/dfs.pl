@@ -1,19 +1,25 @@
+% Base case: Stop when final state is reached
 dfs(State, Path, Path) :-
     final_state(State).
 
+% Recursive case: Explore next states
 dfs(State, Visited, Path) :-
     safe_transition(State, NextState),
-    \+ member(NextState, Visited),
+    \+ member(NextState, Visited),  % Avoid cycles
     dfs(NextState, [NextState|Visited], Path).
 
+% Main function to start algorithm
 solve :-
     initial_state(S),
     dfs(S, [S], ReversedPath),
     reverse(ReversedPath, Solution),
-    write(' Solution Found '),
+    writeln(' Solution found '),
     print_steps(Solution).
 
+% Helper to print the path
 print_steps([]).
-    print_steps([State|Rest]) :-
+print_steps([State|Rest]) :-
     writeln(State),
     print_steps(Rest).
+
+    
