@@ -9,11 +9,11 @@ dfs(State, Visited, Path) :-
     dfs(NextState, [NextState|Visited], Path).
 
 % Main function to start algorithm
-solve :-
+solve_dfs :-
     initial_state(S),
     dfs(S, [S], ReversedPath),
     reverse(ReversedPath, Solution),
-    writeln(' Solution found '),
+    writeln(' Solution found for DFS: '),
     print_steps(Solution).
 
 % Helper to print the path
