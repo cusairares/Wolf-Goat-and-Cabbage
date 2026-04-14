@@ -5,9 +5,14 @@
 :- consult('bfs.pl').
 
 % Start command
-start :-
+start1 :-
     writeln('==========================='),
     writeln('   Lupul, Capra si Varza   '),
     writeln('==========================='),
     solve_dfs.
-    %solve_bfs.
+
+start2 :-
+    writeln('==========================='),
+    writeln('   Lupul, Capra si Varza   '),
+    writeln('==========================='),
+    solve_bfs.
